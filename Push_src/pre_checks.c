@@ -156,16 +156,25 @@ int both_stacks_check(int argc, char **argv)
 	int g;
 
 	if(argc == 2)
-	g = check_stack_quote(argv, 0);
-	if(g == 0)
-	{
-		ft_putstr("Error\n");
+	{	
+		g = check_stack_quote(argv, 0);
+		{
+			if(g == 0)
+			{
+				ft_putstr("Error");
+			}
+		}
 	}
-	else
-	g = check_stack(argc, argv, 1);
-	if(g == 0)
-	{
-		ft_putstr("Error\n");
+	return(g);
+	if(argc > 3)
+	{	
+		g = check_stack(argc, argv, 1);
+		{
+			if(g == 0)
+			{
+				ft_putstr("Error");
+			}
+		}
 	}
 	return(g);
 }
