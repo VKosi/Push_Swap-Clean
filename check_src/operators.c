@@ -6,21 +6,31 @@ void	sa(int *A, int *top, int *top2)
     ft_swap(&A[*top], &A[*top -1]);		
 }
 
-void	sb(int *A, int *top, int *top2)
+void	sb(int *A, int *top, int *top2, int cap)
 {
-	if(top <= top2 -1)
-    ft_swap(&A[*top2], &A[*top2 +1]);
+	if(*top2 != cap){
+    if(top <= top2 -1)
+    ft_swap(&A[*top2], &A[*top2 +1]);}
+    else
+    {
+        ft_putstr("Stack B is empty!");
+    }
 }
 
 void		pa(int *A, int *top, int *top2, int cap)
 {
-	PopB(A,cap,top2);
-    Push(A[*top2-1],A,top,top2);
+	if(*top2 != cap){
+    PopB(A,cap,top2);
+    Push(A[*top2-1],A,top,top2);}
+    else
+    {
+        ft_putstr("Stack B is empty!");
+    }
 }
 
 void		pb(int *A, int *top, int *top2, int cap)
 {
-	Pop(A,top,top2,cap);
+    Pop(A,top,top2,cap);
     PushB(A[*top+1],A,top,top2);
 }
 
@@ -38,12 +48,18 @@ void	ra(int *A, int *top, int *top2)
 
 void	rb(int *A, int *top, int *top2, int top_uni)
 {
-	int r;
+	if(*top2 != top_uni+1){
+    int r;
 
 	r = *top2;
     if(top <= top2 -1)
     while(r <= top_uni-1){
-    ft_swap(&A[r], &A[r + 1]);++r;}
+    ft_swap(&A[r], &A[r + 1]);++r;}}
+    else
+    {
+        ft_putstr("Stack B is empty!");
+    }
+    
 }
 
 void	rra(int *A, int *top, int *top2)
@@ -61,18 +77,24 @@ void	rra(int *A, int *top, int *top2)
 
 void	rrb(int *A, int *top, int *top2, int top_uni)
 {
-	int r;
+	if(*top2 != top_uni+1){
+    int r;
 
-	r = top_uni;
+	r = top_uni-1;
     if(top <= top2 -1)
     while(r > *top2){
-    ft_swap(&A[r], &A[r - 1]);--r;}
+    ft_swap(&A[r], &A[r - 1]);--r;}}
+    else
+    {
+        ft_putstr("Stack B is empty!");
+    }
+    
 }
 
-void	ss(int *A, int *top, int *top2)
+void	ss(int *A, int *top, int *top2, int cap)
 {
 	sa(A, top, top2);
-	sb(A, top, top2);
+	sb(A, top, top2,cap);
 }
 
 void	rr(int *A, int *top, int *top2, int top_uni)

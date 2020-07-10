@@ -175,7 +175,7 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
             }
             if(A[*top2] < A[*top2+1])
             {
-                sb(A,top,top2);
+                sb(A,top,top2,cap);
                 ft_putstr("sb\n");
             }
             if(A[*top] > A[*top-1])
@@ -194,7 +194,7 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
         {
             if(A[*top2] < A[*top2+1])
             {
-                sb(A,top,top2);
+                sb(A,top,top2,cap);
                 ft_putstr("sb\n");
             }
         }

@@ -8,11 +8,11 @@ int		operators(char *ops, int *A, int *top, int *top2, int i, int top_uni, int c
     }
 	else if (ft_strcmp("sb", ops) == 0)
     {
-        sb(A, top, top2);
+        sb(A, top, top2, cap);
     }
 	else if (ft_strcmp("ss", ops) == 0)
     {
-        ss(A, top, top2);
+        ss(A, top, top2, cap);
     }
 	else if (ft_strcmp("pa", ops) == 0)
 	{

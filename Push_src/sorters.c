@@ -148,7 +148,7 @@ void finaliser(int *A, int *top, int *top2, int cap, int top_uni)
     {
     if(A[*top2] > A[*top2+1])
     {
-        sb(A, top, top2);
+        sb(A, top, top2,cap);
         ft_putstr("sb\n");
     }
     else if(*top != top_uni)
@@ -196,8 +196,8 @@ void    finaliser2_b(int *A, int *top, int *top2)
     {
         if(A[*top2] > A[*top2+1] && top2 <= top -2 )
         {
-            sb(A, top, top2);
-            ft_putstr("sb\n");
+            /*sb(A, top, top2, cap);
+            ft_putstr("sb\n");*/
         }
         /*if(A[0] < A[1])
         {
