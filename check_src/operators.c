@@ -6,31 +6,21 @@ void	sa(int *A, int *top, int *top2)
     ft_swap(&A[*top], &A[*top -1]);		
 }
 
-void	sb(int *A, int *top, int *top2, int cap)
+void	sb(int *A, int *top, int *top2)
 {
-	if(*top2 != cap){
-    if(top <= top2 -1)
-    ft_swap(&A[*top2], &A[*top2 +1]);}
-    else
-    {
-        ft_putstr("Stack B is empty!");
-    }
+	if(top <= top2 -1)
+    ft_swap(&A[*top2], &A[*top2 +1]);
 }
 
 void		pa(int *A, int *top, int *top2, int cap)
 {
-	if(*top2 != cap){
-    PopB(A,cap,top2);
-    Push(A[*top2-1],A,top,top2);}
-    else
-    {
-        ft_putstr("Stack B is empty!");
-    }
+	PopB(A,cap,top2);
+    Push(A[*top2-1],A,top,top2);
 }
 
 void		pb(int *A, int *top, int *top2, int cap)
 {
-    Pop(A,top,top2,cap);
+	Pop(A,top,top2,cap);
     PushB(A[*top+1],A,top,top2);
 }
 
@@ -48,18 +38,12 @@ void	ra(int *A, int *top, int *top2)
 
 void	rb(int *A, int *top, int *top2, int top_uni)
 {
-	if(*top2 != top_uni+1){
-    int r;
+	int r;
 
 	r = *top2;
     if(top <= top2 -1)
     while(r <= top_uni-1){
-    ft_swap(&A[r], &A[r + 1]);++r;}}
-    else
-    {
-        ft_putstr("Stack B is empty!");
-    }
-    
+    ft_swap(&A[r], &A[r + 1]);++r;}
 }
 
 void	rra(int *A, int *top, int *top2)
@@ -77,24 +61,18 @@ void	rra(int *A, int *top, int *top2)
 
 void	rrb(int *A, int *top, int *top2, int top_uni)
 {
-	if(*top2 != top_uni+1){
-    int r;
+	int r;
 
-	r = top_uni-1;
+	r = top_uni;
     if(top <= top2 -1)
     while(r > *top2){
-    ft_swap(&A[r], &A[r - 1]);--r;}}
-    else
-    {
-        ft_putstr("Stack B is empty!");
-    }
-    
+    ft_swap(&A[r], &A[r - 1]);--r;}
 }
 
-void	ss(int *A, int *top, int *top2, int cap)
+void	ss(int *A, int *top, int *top2)
 {
 	sa(A, top, top2);
-	sb(A, top, top2,cap);
+	sb(A, top, top2);
 }
 
 void	rr(int *A, int *top, int *top2, int top_uni)
@@ -109,7 +87,7 @@ void	rrr(int *A, int *top, int *top2, int top_uni)
 	rrb(A, top, top2, top_uni);
 }
 
-int		sort_check(int *A, int *top, int *top2)/*if check sort = top the stack is sorted*/
+int		sort_check(int *A, int *top, int *top2)//if check sort = top the stack is sorted
 {
     int r;
     int count;
@@ -131,7 +109,7 @@ int		sort_check(int *A, int *top, int *top2)/*if check sort = top the stack is s
     return(0);
 }
 
-int		sort_check_b(int *A, int *top, int *top2, int top_uni)/*if check sort b = top2 the stack b is sorted*/
+int		sort_check_b(int *A, int *top, int *top2, int top_uni)//if check sort b = top2 the stack b is sorted
 {
 	int r;
     int count;
@@ -147,6 +125,7 @@ int		sort_check_b(int *A, int *top, int *top2, int top_uni)/*if check sort b = t
                 r++;
                 count++;
             }
+            //printf("%d", (r - count));
             return(count - r);
         }
     }

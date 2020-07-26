@@ -8,11 +8,11 @@ int		operators(char *ops, int *A, int *top, int *top2, int i, int top_uni, int c
     }
 	else if (ft_strcmp("sb", ops) == 0)
     {
-        sb(A, top, top2, cap);
+        sb(A, top, top2);
     }
 	else if (ft_strcmp("ss", ops) == 0)
     {
-        ss(A, top, top2, cap);
+        ss(A, top, top2);
     }
 	else if (ft_strcmp("pa", ops) == 0)
 	{
@@ -50,7 +50,7 @@ int		operators(char *ops, int *A, int *top, int *top2, int i, int top_uni, int c
     }
 	else
 		i = -1;
-	return (i);/*operator checker*/
+	return (i);//operator checker
 }
 
 void    stack_string(char **string){
@@ -108,9 +108,10 @@ void    stack(int argc, char **argv){
     int f = 0;
     int i = 0;
 
-    top2 = argc -1;
+    top2 = cap;
+    
     A = malloc((argc - 1) * sizeof (int));
-    while (argc > 1)
+    while (argc > 1 && argv != NULL)
     {
         A[f++] = ft_atoi(argv[--argc]);
     }
@@ -131,7 +132,7 @@ void    stack(int argc, char **argv){
 
 void	end(int *A, int *top, int *top2, int top_uni)
 {
-    if (sort_check(A,top,top2) == *top && (*top == top_uni))
+    if (sort_check(A,top,top2) == *top && *top == top_uni)
 		ft_putstr("OK\n");
     else
 		ft_putstr("KO\n");
