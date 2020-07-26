@@ -125,13 +125,13 @@ int check_stack_quote(char **string, int i)
 		f++;
 	if(check_digit(f,string1,i))
     {
-	if(check_dup(f,string1,i))
-	{
-		if(int_size_check(f,string1,i))
-        {
-            return(1);
+		if(check_dup(f,string1,i))
+		{
+			if(int_size_check(f,string1,i))
+            {
+                return(1);
+            }
         }
-    }
     }
 	return(0);
 }
@@ -140,7 +140,7 @@ int check_stack(int argc, char **argv, int i)
 {
 	if(check_digit(argc,argv,i))
     {
-	if(check_dup(argc,argv,i))
+		if(check_dup(argc,argv,i))
 		{
 			if(int_size_check(argc,argv,i))
             {
@@ -151,30 +151,22 @@ int check_stack(int argc, char **argv, int i)
 	return(0);
 }
 
-int both_stacks_check(int argc, char **argv)
+int both_stacks_check1(int argc, char **argv)
 {
 	int g;
 
 	if(argc == 2)
-	{	
 		g = check_stack_quote(argv, 0);
-		{
-			if(g == 0)
-			{
-				ft_putstr("Error");
-			}
-		}
-	}
-	return(g);
-	if(argc > 3)
-	{	
+	else
 		g = check_stack(argc, argv, 1);
-		{
-			if(g == 0)
-			{
-				ft_putstr("Error");
-			}
-		}
-	}
+	return(g);
+}
+
+int both_stacks_check(int argc, char **argv)
+{
+	int g;
+
+	if((g = both_stacks_check1(argc, argv)) == 0)
+		ft_putstr("Error\n");
 	return(g);
 }

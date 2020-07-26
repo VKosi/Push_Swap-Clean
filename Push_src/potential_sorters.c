@@ -41,21 +41,21 @@ int    smallest_position(int *A, int *top)
 
 void first3_small(int *A, int *top, int *top2, int cap)
 {
-    /*int top_uni;*/
+    //int top_uni;
     int first;
     int r;
     int smallesty = smallest(A,top);
 
     first = *top;
     r = 0;
-    /*top_uni = cap -1;*/
+    //top_uni = cap -1;
     if(top <= top2 -1)
     {
         if(*top <= 3)
         {
             largest(A,top);
             first3_large(A,top,top2);
-            sorter(A,top,top2);
+            sorter(A,top,top2,cap);
         }
         if(*top >= 4)
         {
@@ -96,8 +96,8 @@ void first3_small(int *A, int *top, int *top2, int cap)
             }
         }
     }
-    /*if(sort_check(A,top,top2) == *top && *top != top_uni)
-    putback(A,top,top2,cap,top_uni);*/
+    //if(sort_check(A,top,top2) == *top && *top != top_uni)
+    //putback(A,top,top2,cap,top_uni);
 }
 
 int    midpoint10(int *A,int cap)
@@ -124,20 +124,23 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
     int top_uni;
     int last;
     int first;
+    //int r;
     int midi = cap/2;
 
     first = *top;
     last = 0;
+    //r = 0;
     top_uni = cap -1;
     if(top <= top2 -1)
     {
-        if(sort_check(A,top,top2) != *top || *top != top_uni)
+        if(sort_check(A,top,top2) != cap+1 || *top != top_uni)
         {
             if(A[first] < midi)
             {
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A,top,top2) != cap+1)
                 {
                     pb(A, top, top2, cap);
+                    //printf("*%d", midpoint10(A,top,top2,cap));
                     ft_putstr("pb\n");
                 }
             }
@@ -146,7 +149,7 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
                 rra(A,top,top2);
                 ft_putstr("rra\n");
 
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A,top,top2) != cap+1)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");
@@ -154,28 +157,30 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
             }
             if(A[first] == midi)
             {
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A,top,top2) != cap+1)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");
                 }
 
+                //midpoint10(A,top,top2,cap);
             }
             if(A[last] > midi)
             {
                 rra(A,top,top2);
                 ft_putstr("rra\n");
 
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A,top,top2) != cap+1)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");
                 }
 
+                //midpoint10(A,top,top2,cap);
             }
             if(A[*top2] < A[*top2+1])
             {
-                sb(A,top,top2,cap);
+                sb(A,top,top2);
                 ft_putstr("sb\n");
             }
             if(A[*top] > A[*top-1])
@@ -190,17 +195,18 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
                 }
             }
         }
-        if(sort_check(A,top,top2) == *top && *top != top_uni)
+        if(sort_check(A,top,top2) == cap+1 && *top != top_uni)
         {
             if(A[*top2] < A[*top2+1])
             {
-                sb(A,top,top2,cap);
+                sb(A,top,top2);
                 ft_putstr("sb\n");
             }
         }
+        //midpoint10(A,top,top2,cap);
     }
 }
 
-/*create a new 10 sorter that does 1 of 2 things 
-1. find the smallest in the enire 10 and send them to b 
-2. or find the 2nd,3rd,4th largest and concurrently sort*/
+//create a new 10 sorter that does 1 of 2 things 
+//1. find the smallest in the enire 10 and send them to b 
+//2. or find the 2nd,3rd,4th largest and concurrently sort

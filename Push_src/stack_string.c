@@ -1,24 +1,36 @@
 #include "push_swap.h"
 
-void stack(int argc, char **argv)
+void stack_string(char **string)
 {
-
     int *A;
+    int B[500];
     int *O_I;
+    int cap;
     int top;
     int top_oi;
-    int cap = argc - 1;
+    char **string1;
     int top2;
     int top2_oi;
+    int top_uni;
     int f = 0;
+    int j = 0;
     int i = 0;
 
-    top2 = cap;
-    A = malloc((cap) * sizeof(int));
-    while (argc > 1 && argv != NULL)
+    string1 = ft_strsplit(string[1], ' ');
+    while (string1[j])
     {
-        A[f++] = ft_atoi(argv[--argc]);
+        B[j++] = ft_atoi(string1[f++]);
     }
+
+    cap = j;
+    A = malloc((cap) * sizeof(int));
+    top2 = cap;
+    top = -1;
+    top_uni = top2 - 1;
+    while (j)
+    {
+        Push(B[--j], A, &top, &top2);
+    } /*stack_a_loader*/
     O_I = malloc((cap) * sizeof(int));
     top = f - 1;
     top2_oi = cap;
@@ -67,7 +79,7 @@ void stack(int argc, char **argv)
         exit(0);
     }
 
-    int top_uni = cap - 1;
+    top_uni = cap - 1;
 
     if (top <= 4 && top_uni <= 4)
     {
@@ -140,7 +152,7 @@ void stack(int argc, char **argv)
                 }
             }
 
-            if (twoer_position(A, O_I, &top) <= (cap - top) / 2)
+            if (twoer_position(A, O_I, &top) <= (cap - top) / 2) //(lock(A, O_I, &top2) <= (cap - top) / 2)
             {
                 while (A[top] != twoer(A, O_I, &top))
                 {
@@ -204,7 +216,7 @@ void stack(int argc, char **argv)
                     ft_putstr("ra\n");
                 }
             }
-            else
+            else //if (oner_position2(A, O_I, &top) > cap / 2 || oner2(A, O_I, &top) == twoer2(A, O_I, &top))
             {
                 while (A[top] != oner2(A, O_I, &top))
                 {
@@ -447,7 +459,6 @@ void stack(int argc, char **argv)
                 {
                     pa(A, &top, &top2, cap);
                     ft_putstr("pa\n");
-                    // y++;
                 }
             }
 
@@ -489,16 +500,4 @@ void stack(int argc, char **argv)
         free(A);
         free(O_I);
     }
-}
-
-int main(int argc, char **argv)
-{
-    if (both_stacks_check(argc, argv))
-    {
-        if (argc == 2)
-            stack_string(argv);
-        else if (argc > 2)
-            stack(argc, argv);
-    }
-    return (0);
 }

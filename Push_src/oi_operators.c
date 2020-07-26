@@ -1,8 +1,23 @@
 #include "push_swap.h"
 
+void Print2(int *top_oi, int *O_I) {
+	int i;
+    printf("Stack a starts here\n");
+	for (i = top_oi[0]; i >= 0; --i)
+		printf("%d\n",O_I[i]);
+}
+
+void PrintB2(int *top2_oi, int *O_I, int cap) {
+	int i;
+    printf("Stack b starts here\n");
+	for (i = top2_oi[0]; i < cap; ++i){
+		printf("%d\n",O_I[i]);
+        }
+}
+
 void Push_oi(int x, int *O_I, int *top_oi, int *top2_oi) 
 {
-  if(top_oi <= top2_oi -1) { /* overflow case. */
+  if(top_oi <= top2_oi -1) { // overflow case. 
   O_I[++*top_oi] = x;
   }
   else
@@ -13,7 +28,7 @@ void Push_oi(int x, int *O_I, int *top_oi, int *top2_oi)
 
 void Push_oi_init(int x, int *O_I, int top_oi, int top2_oi) 
 {
-  if(top_oi <= top2_oi -1) { /* overflow case. */
+  if(top_oi <= top2_oi -1) { // overflow case. 
   O_I[++top_oi] = x;
   }
   else
@@ -24,7 +39,7 @@ void Push_oi_init(int x, int *O_I, int top_oi, int top2_oi)
 
 void PushB_oi(int z, int *O_I, int *top_oi, int *top2_oi)
 {
-    if(top_oi <= top2_oi -1) { /* overflow case. */
+    if(top_oi <= top2_oi -1) { // overflow case. 
     O_I[--top2_oi[0]] = z;
     }
     else
@@ -39,11 +54,11 @@ void Pop_oi(int *O_I, int *top_oi, int *top2_oi, int cap)
     {
         int popped_value = O_I[top_oi[0]--];
         if(*top2_oi > cap){
-            ft_putnbr(popped_value);}
+            printf ("%d is in in error\n", popped_value);}
     }
     else
     {
-        ft_putstr ("Stack Empty! Cannot Pop\n");
+        printf ("Stack Empty! Cannot Pop\n");
     }
 }
 
@@ -53,11 +68,11 @@ void PopB_oi(int *O_I, int cap, int *top2_oi)
     {
         int popped_value = O_I[top2_oi[0]++];
         if(*top2_oi > cap){
-            ft_putnbr(popped_value);}
+            printf ("%d is in in error\n", popped_value);}
     }
     else
     {
-        ft_putstr ("Stack Empty! Cannot Pop\n");
+        printf ("Stack Empty! Cannot Pop\n");
     }
 }
 
@@ -101,7 +116,7 @@ int    smallest_oi(int *O_I, int *top_oi)
     return(r);
 }
 
-int		sort_check_oi(int *O_I, int *top_oi, int *top2_oi)/*if check sort = top the stack is sorted*/
+int		sort_check_oi(int *O_I, int *top_oi, int *top2_oi)//if check sort = top the stack is sorted
 {
     int r;
     int count;

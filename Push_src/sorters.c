@@ -60,9 +60,25 @@ int    largest(int *A, int *top)
     return(r);
 }
 
-void sorter(int *A, int *top, int *top2)
+int    largestB(int *A, int *top2)
 {
-    if(sort_check(A,top,top2) != *top)
+    int r;
+    int larg;
+    
+    r = A[*top2];
+    larg = *top2+1;
+    while(larg < 99)
+    {
+        if(r < A[larg])
+        r = A[larg];
+        larg++;
+    }
+    return(r);
+}
+
+void sorter(int *A, int *top, int *top2,int cap)
+{
+    if(sort_check(A,top,top2) != cap+1)
     {
         if(A[*top]>A[*top -1])
         {
@@ -123,22 +139,31 @@ void order_imp(int *O_I, int *top_oi, int *top2_oi, int cap)
     first = *top_oi;
     while(sort_check_oi(O_I,top_oi,top2_oi) != cap+1 && *top_oi)
     {
+        //if(top_oi <= top2_oi -1)
+        //{
             if(O_I[first] != smallestt)
             {
                 ra_oi(O_I, top_oi, top2_oi);
+                printf("ra_oi\n");
+                printf("=%d\n", smallest_oi(O_I,top_oi));
             }
             if(O_I[first] == smallestt)
             {
                 if(sort_check_oi(O_I,top_oi,top2_oi) != cap+1)
                 {
                     pb_oi(O_I, top_oi, top2_oi, cap);
+                    printf("pb_oi\n");
+                    printf("=%d\n", smallest_oi(O_I,top_oi));
                 }
                 
             }
+        //}
     }
     while(sort_check_oi(O_I,top_oi,top2_oi) == cap+1 && *top_oi != top_uni_oi)
     {
         pa_oi(O_I, top_oi, top2_oi, cap);
+        printf("pa_oi\n");
+        printf("=%d\n", smallest_oi(O_I,top_oi));
     }
 }
 
@@ -148,7 +173,7 @@ void finaliser(int *A, int *top, int *top2, int cap, int top_uni)
     {
     if(A[*top2] > A[*top2+1])
     {
-        sb(A, top, top2,cap);
+        sb(A, top, top2);
         ft_putstr("sb\n");
     }
     else if(*top != top_uni)
@@ -196,8 +221,8 @@ void    finaliser2_b(int *A, int *top, int *top2)
     {
         if(A[*top2] > A[*top2+1] && top2 <= top -2 )
         {
-            /*sb(A, top, top2, cap);
-            ft_putstr("sb\n");*/
+            sb(A, top, top2);
+            ft_putstr("sb\n");
         }
         /*if(A[0] < A[1])
         {
