@@ -19,7 +19,13 @@ SRCS2 = Push_src/push_swap.c\
 		Push_src/sorters.c\
 		Push_src/potential_sorters.c\
 		Push_src/oi_operators.c\
+		Push_src/new_sorter.c\
 		Push_src/insert_sort_optimised.c\
+		Push_src/one_twos.c\
+		Push_src/one-twos-1.c\
+		Push_src/big.c\
+		Push_src/100_sort.c\
+		Push_src/stack_string.c\
 
 
 all:$(NAME) $(NAME2)
