@@ -109,7 +109,7 @@ int    midpoint10(int *A,int cap)
     r = A[0];
     mid = 1;
     midi = cap/2;
-    printf("=%d\n", midi);
+    ft_putchar(midi);
     while(mid <= midi)
     {
         if(r > A[mid])
@@ -140,7 +140,6 @@ void first3_small_amended(int *A, int *top, int *top2, int cap)
                 if(sort_check(A,top,top2) != cap+1)
                 {
                     pb(A, top, top2, cap);
-                    //printf("*%d", midpoint10(A,top,top2,cap));
                     ft_putstr("pb\n");
                 }
             }

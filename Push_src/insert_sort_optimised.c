@@ -13,7 +13,7 @@ void int_sort(int *A, int *top, int *top2, int cap,int *small)
         int first;
         //int smalles = small;
 
-        printf("entry\n");
+        ft_putstr("entry\n");
         first = *top;
         if(sort_check(A,top,top2) != cap+1)
         {
@@ -24,16 +24,14 @@ void int_sort(int *A, int *top, int *top2, int cap,int *small)
                     if(A[first] != *small)
                     {
                         ra(A, top, top2);
-                        printf("ra\n");
-                        //printf("=%d\n", smallest(A,&top));
+                        ft_putstr("ra\n");
                     }
                     else if(A[first] == *small)
                     {
                         if(sort_check(A,top,top2) != cap+1)
                         {
                             pb(A, top, top2, cap);
-                            printf("pb\n");
-                            //printf("=%d\n", smallest(A,&top));
+                            ft_putstr("pb\n");
                         }
 
                     }
@@ -44,6 +42,6 @@ void int_sort(int *A, int *top, int *top2, int cap,int *small)
     if(sort_check(A,top,top2) == cap+1 && *top != top_uni)
     {
         pa(A, top, top2, cap);
-        printf("pa\n");
+        ft_putstr("pa\n");
     }
 }

@@ -2,16 +2,16 @@
 
 void Print2(int *top_oi, int *O_I) {
 	int i;
-    printf("Stack a starts here\n");
+    ft_putstr("Stack a starts here\n");
 	for (i = top_oi[0]; i >= 0; --i)
-		printf("%d\n",O_I[i]);
+		ft_putchar(O_I[i]);
 }
 
 void PrintB2(int *top2_oi, int *O_I, int cap) {
 	int i;
-    printf("Stack b starts here\n");
+    ft_putstr("Stack b starts here\n");
 	for (i = top2_oi[0]; i < cap; ++i){
-		printf("%d\n",O_I[i]);
+		ft_putchar(O_I[i]);
         }
 }
 
@@ -54,11 +54,11 @@ void Pop_oi(int *O_I, int *top_oi, int *top2_oi, int cap)
     {
         int popped_value = O_I[top_oi[0]--];
         if(*top2_oi > cap){
-            printf ("%d is in in error\n", popped_value);}
+            ft_putchar(popped_value);}
     }
     else
     {
-        printf ("Stack Empty! Cannot Pop\n");
+        ft_putstr ("Stack Empty! Cannot Pop\n");
     }
 }
 
@@ -68,11 +68,11 @@ void PopB_oi(int *O_I, int cap, int *top2_oi)
     {
         int popped_value = O_I[top2_oi[0]++];
         if(*top2_oi > cap){
-            printf ("%d is in in error\n", popped_value);}
+            ft_putchar(popped_value);}
     }
     else
     {
-        printf ("Stack Empty! Cannot Pop\n");
+        ft_putstr ("Stack Empty! Cannot Pop\n");
     }
 }
 

@@ -3,18 +3,18 @@
 void Print(int *top, int *A)
 {
     int i;
-    printf("Stack a starts here\n");
+    ft_putstr("Stack a starts here\n");
     for (i = top[0]; i >= 0; --i)
-        printf("%d\n", A[i]);
+        ft_putchar(A[i]);
 }
 
 void PrintB(int *top2, int *A, int cap)
 {
     int i;
-    printf("Stack b starts here\n");
+    ft_putstr("Stack b starts here\n");
     for (i = top2[0]; i < cap; ++i)
     {
-        printf("%d\n", A[i]);
+        ft_putchar(A[i]);
     }
 }
 
@@ -49,12 +49,12 @@ void Pop(int *A, int *top, int *top2, int cap)
         int popped_value = A[top[0]--];
         if (*top2 > cap)
         {
-            printf("%d is in in error\n", popped_value);
+            ft_putchar(popped_value);
         }
     }
     else
     {
-        printf("Stack Empty! Cannot Pop\n");
+        ft_putstr("Stack Empty! Cannot Pop\n");
     }
 }
 
@@ -65,13 +65,13 @@ void PopB(int *A, int cap, int *top2)
         int popped_value = A[top2[0]++];
         if (*top2 > cap)
         {
-            printf("%d is in in error\n", popped_value);
+            ft_putchar(popped_value);
         }
     }
     else
     {
         exit(0);
-        printf("Stack Empty! Cannot Pop\n");
+        ft_putstr("Stack Empty! Cannot Pop\n");
     }
 }
 
@@ -217,7 +217,6 @@ int sort_check_b(int *A, int *top, int *top2, int top_uni) //if check sort b = t
                 r++;
                 count++;
             }
-            //printf("%d", (r - count));
             return (count - r);
         }
     }

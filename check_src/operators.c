@@ -134,7 +134,6 @@ int		sort_check_b(int *A, int *top, int *top2, int top_uni)//if check sort b = t
                 r++;
                 count++;
             }
-            //printf("%d", (r - count));
             return(count - r);
         }
     }

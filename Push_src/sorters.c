@@ -145,16 +145,12 @@ void order_imp(int *O_I, int *top_oi, int *top2_oi, int cap)
             if(O_I[first] != smallestt)
             {
                 ra_oi(O_I, top_oi, top2_oi);
-                printf("ra_oi\n");
-                printf("=%d\n", smallest_oi(O_I,top_oi));
             }
             if(O_I[first] == smallestt)
             {
                 if(sort_check_oi(O_I,top_oi,top2_oi) != cap+1)
                 {
                     pb_oi(O_I, top_oi, top2_oi, cap);
-                    printf("pb_oi\n");
-                    printf("=%d\n", smallest_oi(O_I,top_oi));
                 }
                 
             }
@@ -163,8 +159,6 @@ void order_imp(int *O_I, int *top_oi, int *top2_oi, int cap)
     while(sort_check_oi(O_I,top_oi,top2_oi) == cap+1 && *top_oi != top_uni_oi)
     {
         pa_oi(O_I, top_oi, top2_oi, cap);
-        printf("pa_oi\n");
-        printf("=%d\n", smallest_oi(O_I,top_oi));
     }
 }
 

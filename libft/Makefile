@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/25 12:09:01 by vkosi             #+#    #+#              #
-#    Updated: 2020/07/07 01:58:41 by marvin           ###   ########.fr        #
+#    Updated: 2020/07/28 04:45:44 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,10 @@ $(NAME): $(OBJECTS) libft.h
 	$(CC) $(CFLAGS) -c $(SRCS)
 	@@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@printf "\e[1;32mlibft.a created\e[0m\n"
 
 clean:
 	@rm -f $(OBJECTS)
-	@printf "\e[1;31mObject files removed\e[0m\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\e[1;31mlibft.a removed\e[0m\n"
-
 re: fclean all
