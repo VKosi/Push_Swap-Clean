@@ -14,18 +14,19 @@ void stack(int argc, char **argv)
     int i = 0;
 
     top2 = cap;
-    A = malloc((cap) * sizeof(int));
+    A = malloc((cap+1) * sizeof(int));
     while (argc > 1 && argv != NULL)
     {
         A[f++] = ft_atoi(argv[--argc]);
     }
-    O_I = malloc((cap) * sizeof(int));
+    O_I = malloc((cap+1) * sizeof(int));
     top = f - 1;
+    
     top2_oi = cap;
-    while (i <= f && A != NULL)
+    while (i <= f)
     {
         int b = f;
-        O_I[--b] = A[--f];
+        O_I[b--] = A[f--];
     }
     top_oi = cap - 1;
     int top_uni_oi = cap - 1;
@@ -486,9 +487,9 @@ void stack(int argc, char **argv)
                 }
             }
         }
-        free(A);
-        free(O_I);
     }
+    free(A);
+    free(O_I);
 }
 
 int main(int argc, char **argv)

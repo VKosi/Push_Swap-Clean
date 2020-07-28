@@ -1,6 +1,6 @@
 LIBFT = libft/libft.a
 
-CFLAGS = gcc -Wall -Wextra -Werror -o
+CFLAGS = gcc -Wall -ggdb3 -Wextra -Werror -o
 
 CC = gcc
 

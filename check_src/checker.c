@@ -50,6 +50,7 @@ int		operators(char *ops, int *A, int *top, int *top2, int i, int top_uni, int c
     }
 	else
 		i = -1;
+        free(ops);
 	return (i);//operator checker
 }
 
@@ -110,7 +111,7 @@ void    stack(int argc, char **argv){
 
     top2 = cap;
     
-    A = malloc((argc - 1) * sizeof (int));
+    A = malloc((argc + 10) * sizeof (int));
     while (argc > 1 && argv != NULL)
     {
         A[f++] = ft_atoi(argv[--argc]);

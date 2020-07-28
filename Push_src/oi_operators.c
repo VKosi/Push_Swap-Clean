@@ -118,16 +118,25 @@ int    smallest_oi(int *O_I, int *top_oi)
 
 int		sort_check_oi(int *O_I, int *top_oi, int *top2_oi)//if check sort = top the stack is sorted
 {
+    int A2[500];
     int r;
+    int i;
+    int j;
     int count;
 
-	r = *top_oi;
+    i = 0;
+    r = *top_oi;
+    j = 0;
     count = 0;
+    while(i <= *top_oi)
+    {
+        A2[i++] = O_I[j++];
+    }
 	if (top_oi <= top2_oi -1)
 	{
         if(r > 0)
         {
-            while(O_I[r] < O_I[r - 1])
+            while(A2[r] < A2[r - 1])
             {
                 r--;
                 count++;

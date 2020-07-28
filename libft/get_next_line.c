@@ -19,7 +19,7 @@ int		line_read(char **ptr, char **line, int fd, int rd_value)
 
 	index = 0;
 	while (ptr[fd][index] != '\n' && ptr[fd][index] != '\0')
-		index++;
+	index++;
 	if (ptr[fd][index] == '\n')
 	{
 		*line = ft_strsub(ptr[fd], 0, index);
@@ -27,7 +27,8 @@ int		line_read(char **ptr, char **line, int fd, int rd_value)
 		free(ptr[fd]);
 		ptr[fd] = tmp;
 		if (ptr[fd][0] == '\0')
-			ft_strdel(&ptr[fd]);
+			{ft_strdel(&ptr[fd]);
+			free(ptr[fd]);}
 	}
 	else if (ptr[fd][index] == '\0')
 	{
@@ -35,6 +36,7 @@ int		line_read(char **ptr, char **line, int fd, int rd_value)
 			return (get_next_line(fd, line));
 		*line = ft_strdup(ptr[fd]);
 		ft_strdel(&ptr[fd]);
+		free(ptr[fd]);
 	}
 	return (1);
 }

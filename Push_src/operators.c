@@ -172,16 +172,25 @@ void rrr(int *A, int *top, int *top2, int top_uni)
 
 int sort_check(int *A, int *top, int *top2) //if check sort = top the stack is sorted
 {
+    int A2[500];
     int r;
+    int i;
+    int j;
     int count;
 
+    i = 0;
     r = *top;
+    j = 0;
     count = 0;
-    if (top <= top2 - 1)
+    while(i <= *top)
     {
-        if (r > 0)
+        A2[i++] = A[j++];
+    }
+	if (top <= top2 -1)
+	{
+        if(r > 0)
         {
-            while (A[r] < A[r - 1])
+            while(A2[r] < A2[r - 1])
             {
                 r--;
                 count++;

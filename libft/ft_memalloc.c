@@ -15,10 +15,11 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void	*mem;
+	char	*mem;
 
-	if (!(mem = malloc(size)))
+	if (!(mem = (char*)malloc(sizeof(char)*size)))
 		return (NULL);
 	ft_bzero(mem, size);
+	//free(mem);
 	return (mem);
 }

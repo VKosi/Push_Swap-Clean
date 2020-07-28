@@ -78,6 +78,7 @@ int    largestB(int *A, int *top2)
 
 void sorter(int *A, int *top, int *top2,int cap)
 {
+
     if(sort_check(A,top,top2) != cap+1)
     {
         if(A[*top]>A[*top -1])
@@ -85,7 +86,7 @@ void sorter(int *A, int *top, int *top2,int cap)
             sa(A, top, top2);
             ft_putstr("sa\n");
         }
-        if(A[*top -2] && A[*top-1]>A[*top -2])
+        else if(A[*top -2] && A[*top-1]>A[*top -2])
         {
             ra(A, top, top2);
             ft_putstr("ra\n");
@@ -96,7 +97,7 @@ void sorter(int *A, int *top, int *top2,int cap)
             rra(A, top, top2);
             ft_putstr("rra\n");
         }
-        if(A[*top -3] && A[*top-2]>A[*top -3])
+        else if(A[*top -3] && A[*top-2]>A[*top -3])
         {
             rra(A, top, top2);
             ft_putstr("rra\n");
@@ -110,7 +111,7 @@ void sorter(int *A, int *top, int *top2,int cap)
             ra(A, top, top2);
             ft_putstr("ra\n");
         }
-        if(A[*top -4] && A[*top-3]>A[*top -4])
+        else if(A[*top-4] && A[*top-3]>A[*top-4])
         {
             rra(A, top, top2);
             ft_putstr("rra\n");
