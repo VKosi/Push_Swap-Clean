@@ -26,6 +26,10 @@ SRCS2 = Push_src/push_swap.c\
 		Push_src/big.c\
 		Push_src/100_sort.c\
 		Push_src/stack_string.c\
+		Push_src/500_sort.c\
+		Push_src/500_pos.c\
+		Push_src/one_twos500.c\
+		Push_src/one_twos500_2.c\
 
 
 all:$(NAME) $(NAME2)

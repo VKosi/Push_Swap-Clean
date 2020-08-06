@@ -70,6 +70,7 @@ void PopB(int *A, int cap, int *top2)
     }
     else
     {
+        free(A);
         exit(0);
         ft_putstr("Stack Empty! Cannot Pop\n");
     }

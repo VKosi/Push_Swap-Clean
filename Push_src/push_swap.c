@@ -65,10 +65,31 @@ void stack(int argc, char **argv)
 
     if (sort_check(A, &top, &top2) == top)
     {
+        free(A);
+        free(O_I);
         exit(0);
     }
 
     int top_uni = cap - 1;
+
+    if (top_uni == 4)
+    {
+        while (sort_check(A, &top, &top2) != top)
+        {
+            if (sort_check(A, &top, &top2) != top)
+            {
+                first3_small2(A, &top, &top2, cap);
+            }
+            putback(A, &top, &top2, cap, top_uni);
+        }
+    }
+
+    if (sort_check(A, &top, &top2) == top)
+    {
+        free(A);
+        free(O_I);
+        exit(0);
+    }
 
     if (top <= 4 && top_uni <= 4)
     {
@@ -498,8 +519,12 @@ int main(int argc, char **argv)
     {
         if (argc == 2)
             stack_string(argv);
-        else if (argc > 2)
+        else if (argc <= 100)
+        {
             stack(argc, argv);
+        }
+        else if (argc > 100)
+            stack500(argc, argv);
     }
     return (0);
 }

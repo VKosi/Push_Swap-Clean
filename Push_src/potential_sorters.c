@@ -100,6 +100,67 @@ void first3_small(int *A, int *top, int *top2, int cap)
     //putback(A,top,top2,cap,top_uni);
 }
 
+void first3_small2(int *A, int *top, int *top2, int cap)
+{
+    //int top_uni;
+    int first;
+    int r;
+    int smallesty = smallest(A,top);
+
+    first = *top;
+    r = 0;
+    //top_uni = cap -1;
+    if(top <= top2 -1)
+    {
+        if(*top == 2 && sort_check(A,top,top2) != *top)
+        {
+            largest(A,top);
+            first3_large(A,top,top2);
+            sorter(A,top,top2,cap);
+        }
+        if(*top <= 4 && sort_check(A,top,top2) != *top)
+        {
+            if(A[first] == smallesty)
+            {
+                if(sort_check(A,top,top2) != *top)
+                {
+                    pb(A, top, top2, cap);
+                    ft_putstr("pb\n");
+                }
+            }
+            if(A[r] == smallesty)
+            {
+                rra(A,top,top2);
+                ft_putstr("rra\n");
+
+                if(sort_check(A,top,top2) != *top)
+                {
+                    pb(A, top, top2, cap);
+                    ft_putstr("pb\n");
+                }
+            }
+            if(A[first-1] == smallesty)
+            {
+                sa(A,top,top2);
+                ft_putstr("sa\n");
+
+                if(sort_check(A,top,top2) != *top)
+                {
+                    pb(A, top, top2, cap);
+                    ft_putstr("pb\n");
+                }
+            }
+            else if(A[first] != smallesty && A[r] != smallesty)
+            {
+                ra(A,top,top2);
+                ft_putstr("ra\n");
+            }
+        }
+    }
+    //if(sort_check(A,top,top2) == *top && *top != top_uni)
+    //putback(A,top,top2,cap,top_uni);
+}
+
 int    midpoint10(int *A,int cap)
 {
     int r;

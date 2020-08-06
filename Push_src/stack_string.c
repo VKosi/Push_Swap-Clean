@@ -76,6 +76,8 @@ void stack_string(char **string)
 
     if (sort_check(A, &top, &top2) == top)
     {
+        free(A);
+        free(O_I);
         exit(0);
     }
 

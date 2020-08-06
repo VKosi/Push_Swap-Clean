@@ -52,6 +52,35 @@ int oner_position_big(int *A, int *O_I, int *top2)
     return (0);
 }
 
+int oner_position_big_(int *A, int *O_I, int *top2)
+{
+    int r;
+    int smal;
+    int onest = O_I[*top2];
+
+    r = *top2;
+    smal = 1;
+    while (smal <= 499)
+    {
+        if (r)
+        {
+            while (A[r] != onest)
+            {
+                if (A[r] == onest)
+                {
+                    r++;
+                    smal++;
+                    break;
+                }
+                r++;
+                smal++;
+            }
+            return (smal);
+        }
+    }
+    return (0);
+}
+
 int oner_big(int *A, int *O_I, int *top2)
 {
     int r;

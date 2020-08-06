@@ -246,7 +246,7 @@ void    finaliser2_b(int *A, int *top, int *top2)
 
 void    putback(int *A, int *top, int *top2, int cap, int top_uni)
 {
-    if(sort_check(A,top,top2) == *top && *top != top_uni)
+    while(sort_check(A,top,top2) == *top && *top != top_uni)
         {
             pa(A, top, top2, cap);
             ft_putstr("pa\n");
