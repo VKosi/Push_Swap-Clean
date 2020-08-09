@@ -54,50 +54,6 @@ int		operators(char *ops, int *A, int *top, int *top2, int i, int top_uni, int c
 	return (i);//operator checker
 }
 
-void    stack_string(char **string){
-    
-    int *A;
-    int B[500];
-    int cap;
-    int top;
-    char **string1;
-    char *ops;
-    int top2;
-    int top_uni;
-    int f = 0;
-    int j = 0;
-    int i = 0;
-    
-    string1 = ft_strsplit(string[1], ' ');
-    while(string1[j])
-    {
-        B[j++] = ft_atoi(string1[f++]);   
-    }
-
-    cap = j;
-    A = malloc((cap) * sizeof (int));
-    top2 = cap;
-    top_uni = top2 - 1;
-    top = -1;
-    while(j)
-    {
-        Push(B[--j],A,&top,&top2);
-    }/*stack_a_loader*/
-    
-    while(get_next_line(0, &ops))
-    {
-        i = operators(ops, A, &top,&top2,i,top_uni,cap);
-        if(i == -1)
-            break ;
-    }
-    if (i != -1)
-    	end(A,&top,&top2,top_uni);
-	else
-		ft_putstr("Error\n");
-
-    free(A);
-}
-
 void    stack(int argc, char **argv){
 
     int *A;
@@ -143,9 +99,7 @@ int		main(int argc, char **argv)
 {
 	if (both_stacks_check(argc, argv))
     {
-        if(argc == 2)
-            stack_string(argv);
-        else if(argc > 2)
+        if(argc > 2)
             stack(argc,argv);
     }
     return(0);

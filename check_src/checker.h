@@ -27,7 +27,6 @@ void	rrr(int *A, int *top, int *top2, int top_uni);
 int     first3_large(int *A, int *top, int *top2);
 int		sort_check(int *A, int *top, int *top2);
 int		sort_check_b(int *A, int *top, int *top2, int top_uni);
-void    stack_string(char **string);
 void    stack(int argc, char **argv);
 int		check_dup(int argc, char **argv, int i);
 int		check_digit(int argc, char **argv, int i);

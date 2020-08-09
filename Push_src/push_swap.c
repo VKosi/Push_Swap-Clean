@@ -517,9 +517,7 @@ int main(int argc, char **argv)
 {
     if (both_stacks_check(argc, argv))
     {
-        if (argc == 2)
-            stack_string(argv);
-        else if (argc <= 100)
+        if (argc <= 100)
         {
             stack(argc, argv);
         }

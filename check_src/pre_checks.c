@@ -114,28 +114,6 @@ int		int_size_check(int argc, char **argv, int i)
 	return (1);
 }
 
-int check_stack_quote(char **string, int i)
-{
-	char **string1;
-    int f;
-	
-	f = 0;
-	string1 = ft_strsplit(string[1], ' ');
-	while(string1[f])
-		f++;
-	if(check_digit(f,string1,i))
-    {
-		if(check_dup(f,string1,i))
-		{
-			if(int_size_check(f,string1,i))
-            {
-                return(1);
-            }
-        }
-    }
-	return(0);
-}
-
 int check_stack(int argc, char **argv, int i)
 {
 	if(check_digit(argc,argv,i))
@@ -154,11 +132,8 @@ int check_stack(int argc, char **argv, int i)
 int both_stacks_check1(int argc, char **argv)
 {
 	int g;
-
-	if(argc == 2)
-		g = check_stack_quote(argv, 0);
-	else
-		g = check_stack(argc, argv, 1);
+	
+	g = check_stack(argc, argv, 1);
 	return(g);
 }
 
