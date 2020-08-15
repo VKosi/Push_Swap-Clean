@@ -41,7 +41,7 @@ void int_sort(int *A, int *top, int *top2, int cap,int *small)
     }
     if(sort_check(A,top,top2) == cap+1 && *top != top_uni)
     {
-        pa(A, top, top2, cap);
+        //pa(A, O_I, top, top2, cap);
         ft_putstr("pa\n");
     }
 }

@@ -413,7 +413,7 @@ void putback_to_A(int *A, int *O_I, int *top, int *top2, int cap)
         {
             if (A[*top2] == O_I[*top2])
             {
-                pa(A, top, top2, cap);
+                pa(A, O_I, top, top2, cap);
                 ft_putstr("pa\n");
                 // y++;
             }
@@ -425,7 +425,7 @@ void putback_to_A(int *A, int *O_I, int *top, int *top2, int cap)
             {
                 if (A[*top2] == biggy(O_I, top2))
                 {
-                    pa(A, top, top2, cap);
+                    pa(A, O_I, top, top2, cap);
                     ft_putstr("pa\n");
                     break;
                 }
@@ -442,7 +442,7 @@ void putback_to_A(int *A, int *O_I, int *top, int *top2, int cap)
             {
                 if (A[*top2] == O_I[*top2])
                 {
-                    pa(A, top, top2, cap);
+                    pa(A, O_I, top, top2, cap);
                     ft_putstr("pa\n");
                     break;
                 }

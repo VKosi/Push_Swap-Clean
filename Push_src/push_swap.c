@@ -80,7 +80,7 @@ void stack(int argc, char **argv)
             {
                 first3_small2(A, &top, &top2, cap);
             }
-            putback(A, &top, &top2, cap, top_uni);
+            putback(A, O_I, &top, &top2, cap, top_uni);
         }
     }
 
@@ -105,7 +105,7 @@ void stack(int argc, char **argv)
                 if (top >= 40)
                     first3_small_amended(A, &top, &top2, cap);
             }
-            putback(A, &top, &top2, cap, top_uni);
+            putback(A, O_I, &top, &top2, cap, top_uni);
         }
     }
     if (top > 4)
@@ -467,7 +467,7 @@ void stack(int argc, char **argv)
             {
                 if (A[top2] == O_I[top2])
                 {
-                    pa(A, &top, &top2, cap);
+                    pa(A, O_I, &top, &top2, cap);
                     ft_putstr("pa\n");
                     // y++;
                 }
@@ -479,7 +479,7 @@ void stack(int argc, char **argv)
                 {
                     if (A[top2] == biggy(O_I, &top2))
                     {
-                        pa(A, &top, &top2, cap);
+                        pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
                         break;
                     }
@@ -496,7 +496,7 @@ void stack(int argc, char **argv)
                 {
                     if (A[top2] == O_I[top2])
                     {
-                        pa(A, &top, &top2, cap);
+                        pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
                         break;
                     }

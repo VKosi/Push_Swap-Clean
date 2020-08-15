@@ -58,7 +58,7 @@ void Pop(int *A, int *top, int *top2, int cap)
     }
 }
 
-void PopB(int *A, int cap, int *top2)
+void PopB(int *A, int *O_I, int cap, int *top2)
 {
     if (*top2 < cap)
     {
@@ -71,6 +71,7 @@ void PopB(int *A, int cap, int *top2)
     else
     {
         free(A);
+        free(O_I);
         exit(0);
         ft_putstr("Stack Empty! Cannot Pop\n");
     }
@@ -88,9 +89,9 @@ void sb(int *A, int *top, int *top2)
         ft_swap(&A[*top2], &A[*top2 + 1]);
 }
 
-void pa(int *A, int *top, int *top2, int cap)
+void pa(int *A,int *O_I, int *top, int *top2, int cap)
 {
-    PopB(A, cap, top2);
+    PopB(A, O_I,cap, top2);
     Push(A[*top2 - 1], A, top, top2);
 }
 

@@ -958,7 +958,7 @@ void stack500(int argc, char **argv)
             {
                 if (A[top2] == O_I[top2])
                 {
-                    pa(A, &top, &top2, cap);
+                    pa(A, O_I, &top, &top2, cap);
                     ft_putstr("pa\n");
                     // y++;
                 }
@@ -970,7 +970,7 @@ void stack500(int argc, char **argv)
                 {
                     if (A[top2] == biggy(O_I, &top2))
                     {
-                        pa(A, &top, &top2, cap);
+                        pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
                         break;
                     }
@@ -987,7 +987,7 @@ void stack500(int argc, char **argv)
                 {
                     if (A[top2] == O_I[top2])
                     {
-                        pa(A, &top, &top2, cap);
+                       pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
                         break;
                     }

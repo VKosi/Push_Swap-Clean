@@ -162,7 +162,7 @@ void order_imp(int *O_I, int *top_oi, int *top2_oi, int cap)
     }
 }
 
-void finaliser(int *A, int *top, int *top2, int cap, int top_uni)
+/*void finaliser(int *A, int *top, int *top2, int cap, int top_uni)
 {
     if(top <= top2 -1)
     {
@@ -173,13 +173,13 @@ void finaliser(int *A, int *top, int *top2, int cap, int top_uni)
     }
     else if(*top != top_uni)
     {
-        pa(A, top, top2, cap);
+        pa(A, O_I, &top, &top2, cap);
         ft_putstr("pa\n");
     }
     }
-}
+}*/
 
-void    finaliser2(int *A, int *top, int *top2)
+/*void    finaliser2(int *A, int *top, int *top2)
 {
     if(sort_check(A,top,top2) != *top)
     {
@@ -207,7 +207,7 @@ void    finaliser2(int *A, int *top, int *top2)
         }
 
     }
-}
+}*/
 
 void    finaliser2_b(int *A, int *top, int *top2)
 {
@@ -244,11 +244,11 @@ void    finaliser2_b(int *A, int *top, int *top2)
     }
 }
 
-void    putback(int *A, int *top, int *top2, int cap, int top_uni)
+void    putback(int *A, int *O_I, int *top, int *top2, int cap, int top_uni)
 {
     while(sort_check(A,top,top2) == *top && *top != top_uni)
         {
-            pa(A, top, top2, cap);
+            pa(A, O_I, top, top2, cap);
             ft_putstr("pa\n");
         }
 }
