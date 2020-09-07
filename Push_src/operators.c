@@ -5,7 +5,10 @@ void Print(int *top, int *A)
     int i;
     ft_putstr("Stack a starts here\n");
     for (i = top[0]; i >= 0; --i)
-        ft_putchar(A[i]);
+    {
+        ft_putnbr(A[i]);
+        ft_putchar('\n');
+    }
 }
 
 void PrintB(int *top2, int *A, int cap)
@@ -14,7 +17,8 @@ void PrintB(int *top2, int *A, int cap)
     ft_putstr("Stack b starts here\n");
     for (i = top2[0]; i < cap; ++i)
     {
-        ft_putchar(A[i]);
+        ft_putnbr(A[i]);
+        ft_putchar('\n');
     }
 }
 
@@ -89,9 +93,9 @@ void sb(int *A, int *top, int *top2)
         ft_swap(&A[*top2], &A[*top2 + 1]);
 }
 
-void pa(int *A,int *O_I, int *top, int *top2, int cap)
+void pa(int *A, int *O_I, int *top, int *top2, int cap)
 {
-    PopB(A, O_I,cap, top2);
+    PopB(A, O_I, cap, top2);
     Push(A[*top2 - 1], A, top, top2);
 }
 
@@ -184,15 +188,15 @@ int sort_check(int *A, int *top, int *top2) //if check sort = top the stack is s
     r = *top;
     j = 0;
     count = 0;
-    while(i <= *top)
+    while (i <= *top)
     {
         A2[i++] = A[j++];
     }
-	if (top <= top2 -1)
-	{
-        if(r > 0)
+    if (top <= top2 - 1)
+    {
+        if (r > 0)
         {
-            while(A2[r] < A2[r - 1])
+            while (A2[r] < A2[r - 1])
             {
                 r--;
                 count++;

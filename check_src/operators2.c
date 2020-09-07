@@ -48,6 +48,8 @@ void Pop(int *A, int *top, int *top2, int cap)
     else
     {
         ft_putstr("Stack Empty! Cannot Pop\n");
+        //free(A);
+        //exit(0);
     }
 }
 
@@ -62,5 +64,7 @@ void PopB(int *A, int cap, int *top2)
     else
     {
         ft_putstr("Stack Empty! Cannot Pop\n");
+        //free(A);
+        //exit(0);
     }
 }

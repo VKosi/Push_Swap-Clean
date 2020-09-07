@@ -118,11 +118,11 @@ void first3_small2(int *A, int *top, int *top2, int cap)
             first3_large(A,top,top2);
             sorter(A,top,top2,cap);
         }
-        if(*top <= 4 && sort_check(A,top,top2) != *top)
+        if(*top <= 4 && (sort_check(A, top, top2) != *top && sort_check(A, top, top2) != *top+2))
         {
             if(A[first] == smallesty)
             {
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A, top, top2) != *top && sort_check(A, top, top2) != *top+2)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");
@@ -133,7 +133,7 @@ void first3_small2(int *A, int *top, int *top2, int cap)
                 rra(A,top,top2);
                 ft_putstr("rra\n");
 
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A, top, top2) != *top && sort_check(A, top, top2) != *top+2)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");
@@ -144,7 +144,7 @@ void first3_small2(int *A, int *top, int *top2, int cap)
                 sa(A,top,top2);
                 ft_putstr("sa\n");
 
-                if(sort_check(A,top,top2) != *top)
+                if(sort_check(A, top, top2) != *top && sort_check(A, top, top2) != *top+2)
                 {
                     pb(A, top, top2, cap);
                     ft_putstr("pb\n");

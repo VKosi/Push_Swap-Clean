@@ -27,7 +27,7 @@ int twoer_(int *A, int *O_I, int *top)
 
     r = 0;
     dot = 0;
-    while (dot <= *top)
+    while (dot <= *top )
     {
         if (A[dot] >= O_I[499] && A[dot] <= O_I[453])
         {

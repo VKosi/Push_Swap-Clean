@@ -14,14 +14,14 @@ void stack(int argc, char **argv)
     int i = 0;
 
     top2 = cap;
-    A = malloc((cap+1) * sizeof(int));
+    A = malloc((cap + 1) * sizeof(int));
     while (argc > 1 && argv != NULL)
     {
         A[f++] = ft_atoi(argv[--argc]);
     }
-    O_I = malloc((cap+1) * sizeof(int));
+    O_I = malloc((cap + 1) * sizeof(int));
     top = f - 1;
-    
+
     top2_oi = cap;
     while (i <= f)
     {
@@ -31,7 +31,7 @@ void stack(int argc, char **argv)
     top_oi = cap - 1;
     int top_uni_oi = cap - 1;
     smallest_oi(O_I, &top_oi);
-    while (sort_check_oi(O_I, &top_oi, &top2_oi) != cap + 1 && top_oi)
+    while (sort_check_oi(O_I, &top_oi, &top2_oi) != cap+1 && top_oi)
     {
         int first;
         int smallestt = smallest_oi(O_I, &top_oi);
@@ -72,9 +72,22 @@ void stack(int argc, char **argv)
 
     int top_uni = cap - 1;
 
+    if (top_uni == 3)
+    {
+        if (sort_check(A, &top, &top2) != top || sort_check(A,&top,&top2) !=  top +2)
+        {
+            //if (sort_check(A, &top, &top2) == top + 2)
+            //{
+            //    break;
+            //}
+            first3_small2(A, &top, &top2, cap);
+            putback(A, O_I, &top, &top2, cap, top_uni);
+        }
+    }
+
     if (top_uni == 4)
     {
-        while (sort_check(A, &top, &top2) != top)
+        if (sort_check(A, &top, &top2) != top || top + 2)
         {
             if (sort_check(A, &top, &top2) != top)
             {
@@ -93,24 +106,19 @@ void stack(int argc, char **argv)
 
     if (top <= 4 && top_uni <= 4)
     {
-        while (sort_check(A, &top, &top2) != top)
+        while ((sort_check(A, &top, &top2) != top && sort_check(A, &top, &top2) != top+2) ||
+        (sort_check(A, &top, &top2) != top && sort_check(A, &top, &top2) != top+2))
         {
             if (sort_check(A, &top, &top2) != top)
             {
-                if (top < 40)
-                {
-                    smallest(A, &top);
-                    first3_small(A, &top, &top2, cap);
-                }
-                if (top >= 40)
-                    first3_small_amended(A, &top, &top2, cap);
+                first3_small2(A, &top, &top2, cap);
             }
             putback(A, O_I, &top, &top2, cap, top_uni);
         }
     }
     if (top > 4)
     {
-        while (top > 79 && top <= top2 - 1)
+        while (top > 79 && top_uni <= 99)
         {
             if (A[top] == oner(A, O_I, &top) && A[top] == twoer(A, O_I, &top))
             {
@@ -199,7 +207,7 @@ void stack(int argc, char **argv)
             }
         }
 
-        while (top > 59 && top <= top2 - 1)
+        while (top > 59 && top_uni <= 99)
         {
             if (A[top] == oner2(A, O_I, &top) && A[top] == twoer2(A, O_I, &top))
             {
@@ -269,9 +277,6 @@ void stack(int argc, char **argv)
             else
             {
 
-                int x;
-
-                x = 0;
                 while (A[top] != twoer2(A, O_I, &top))
                 {
                     if (A[top] == oner2(A, O_I, &top))
@@ -283,12 +288,11 @@ void stack(int argc, char **argv)
 
                     rra(A, &top, &top2);
                     ft_putstr("rra\n");
-                    x++;
                 }
             }
         }
 
-        while (top > 39 && top <= top2 - 1)
+        while (top > 39 && top_uni <= 99)
         {
             if (A[top] == oner3(A, O_I, &top) && A[top] == twoer3(A, O_I, &top))
             {
@@ -372,7 +376,7 @@ void stack(int argc, char **argv)
             }
         }
 
-        while (top > 19 && top <= top2 - 1)
+        while (top > 19 && top_uni <= 99)
         {
 
             if (A[top] == oner4(A, O_I, &top) && A[top] == twoer4(A, O_I, &top))
@@ -447,7 +451,7 @@ void stack(int argc, char **argv)
             }
         }
 
-        while (top > 0 && top <= top2 - 1)
+        while (top > 0 && top_uni <= 99)
         {
             if (A[top] != O_I[0])
             {
@@ -461,7 +465,7 @@ void stack(int argc, char **argv)
             }
         }
 
-        while (top <= 98)
+        while (top <= 98 && top_uni <= 99)
         {
             if (A[top2] == O_I[top2])
             {
@@ -469,6 +473,7 @@ void stack(int argc, char **argv)
                 {
                     pa(A, O_I, &top, &top2, cap);
                     ft_putstr("pa\n");
+                    
                     // y++;
                 }
             }
@@ -481,6 +486,7 @@ void stack(int argc, char **argv)
                     {
                         pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
+                        
                         break;
                     }
                     else
@@ -498,6 +504,7 @@ void stack(int argc, char **argv)
                     {
                         pa(A, O_I, &top, &top2, cap);
                         ft_putstr("pa\n");
+                        
                         break;
                     }
                     else
@@ -517,11 +524,11 @@ int main(int argc, char **argv)
 {
     if (both_stacks_check(argc, argv))
     {
-        if (argc <= 100)
+        if (argc <= 101)
         {
             stack(argc, argv);
         }
-        else if (argc > 100)
+        else if (argc > 101)
             stack500(argc, argv);
     }
     return (0);

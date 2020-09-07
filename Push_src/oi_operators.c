@@ -1,18 +1,23 @@
 #include "push_swap.h"
 
-void Print2(int *top_oi, int *O_I) {
+void Print22(int *top_oi, int *O_I) {
 	int i;
     ft_putstr("Stack a starts here\n");
 	for (i = top_oi[0]; i >= 0; --i)
-		ft_putchar(O_I[i]);
+	{
+        ft_putnbr(O_I[i]);
+        ft_putchar('\n');
+    }
 }
 
-void PrintB2(int *top2_oi, int *O_I, int cap) {
+void PrintB22(int *top2_oi, int *O_I, int cap) {
 	int i;
     ft_putstr("Stack b starts here\n");
-	for (i = top2_oi[0]; i < cap; ++i){
-		ft_putchar(O_I[i]);
-        }
+	for (i = top2_oi[0]; i < cap; ++i)
+	{
+        ft_putnbr(O_I[i]);
+        ft_putchar('\n');
+    }
 }
 
 void Push_oi(int x, int *O_I, int *top_oi, int *top2_oi) 

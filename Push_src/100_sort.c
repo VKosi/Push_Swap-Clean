@@ -1,4 +1,4 @@
-#include "push_swap.h"
+ #include "push_swap.h"
 
 void stackmirror(int *O_I, int *top_oi, int *top2_oi, int cap)
 {
