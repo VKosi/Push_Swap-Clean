@@ -63,7 +63,7 @@ void stack500(int argc, char **argv)
         pa_oi(O_I, &top_oi, &top2_oi, cap);
     }
 
-    if (sort_check(A, &top, &top2) == top)
+    if (sort_check(A, &top, &top2) == top || sort_check(A, &top, &top2) == top+2)
     {
         free(A);
         free(O_I);
