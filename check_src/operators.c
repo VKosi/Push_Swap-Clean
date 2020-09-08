@@ -14,8 +14,17 @@ void sb(int *A, int *top, int *top2)
 
 void pa(int *A, int *top, int *top2, int cap)
 {
-    PopB(A, cap, top,cap);
-    Push(A[*top2 - 1], A, top, top2);
+    if (*top2 < cap)
+    {
+        PopB(A, cap, top, top2);
+        Push(A[*top2 - 1], A, top, top2);
+    }
+    /*else
+    {
+        ft_putstr("KO\n");
+        free(A);
+        exit(0);
+    }**/
 }
 
 void pb(int *A, int *top, int *top2, int cap)
@@ -25,12 +34,12 @@ void pb(int *A, int *top, int *top2, int cap)
         Pop(A, top, top2, cap);
         PushB(A[*top + 1], A, top, top2);
     }
-    else
+    /*else
     {
-        ft_putstr("KO");
+        ft_putstr("KO\n");
         free(A);
         exit(0);
-    }
+    }*/
 }
 
 void ra(int *A, int *top, int *top2)

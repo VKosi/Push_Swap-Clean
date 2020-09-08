@@ -22,15 +22,14 @@ void PrintB(int *top2, int *A, int cap)
     }
 }
 
-void Push(int x, int *A, int *top2, int cap)
+void Push(int x, int *A, int *top, int *top2)
 {
-    if (*top2 < cap)
+    if (top <= top2 - 1)
     { // overflow case.
         A[++*top] = x;
     }
     else
     {
-        //ft_putstr("Error: stack overflow\n");
         ft_putstr("KO\n");
         free(A);
         exit(0);
@@ -39,22 +38,21 @@ void Push(int x, int *A, int *top2, int cap)
 
 void PushB(int z, int *A, int *top, int *top2)
 {
-    if (*top >= -1 && top2 >= top)
+    if (*top >= -1)
     { // overflow case.
         A[--*top2] = z;
     }
-    else
+    /*else
     {
-        //ft_putstr("Error cant push\n");
         ft_putstr("KO\n");
         free(A);
         exit(0);
-    }
+    }*/
 }
 
 void Pop(int *A, int *top, int *top2, int cap)
 {
-    if (*top2 >= 0)
+    if (*top2 <= cap)
     {
         int popped_value = A[top[0]--];
         if (*top2 > cap)
@@ -64,15 +62,15 @@ void Pop(int *A, int *top, int *top2, int cap)
     }
     else
     {
-        ft_putstr("Stack Empty! Cannot Pop\n");
-        //free(A);
-        //exit(0);
+        ft_putstr("KO\n");
+        free(A);
+        exit(0);
     }
 }
 
 void PopB(int *A, int cap, int *top, int *top2)
 {
-    if (*top >= 0)
+    if (top <= top2 -1)
     {
         int popped_value = A[top2[0]++];
         if (*top2 > cap)

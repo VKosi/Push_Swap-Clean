@@ -98,10 +98,6 @@ void    stack(int argc, char **argv){
 	else
 		ft_putstr("Error\n");
     
-    Print(&top,A);
-    PrintB(&top2,A,cap);
-    printf("top %d\n",top);
-    printf("top2%d\n",top2);
     free(A);
 }
 

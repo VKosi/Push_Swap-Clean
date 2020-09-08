@@ -7,7 +7,7 @@
 #include "../libft/libft.h"
 
 void    Push_init(int x);
-void    Push(int x, int *A, int *top, int cap);
+void    Push(int x, int *A, int *top, int *top2);
 void    PushB(int z, int *A, int *top, int *top2);
 void    Pop(int *A, int *top, int *top2, int cap);
 void    PopB(int *A, int cap, int *top, int *top2);
