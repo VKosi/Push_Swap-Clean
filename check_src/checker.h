@@ -10,7 +10,7 @@ void    Push_init(int x);
 void    Push(int x, int *A, int *top, int *top2);
 void    PushB(int z, int *A, int *top, int *top2);
 void    Pop(int *A, int *top, int *top2, int cap);
-void    PopB(int *A, int cap, int *top2);
+void    PopB(int *A, int cap, int *top, int *top2);
 void    Print(int *top, int *A) ;
 void    PrintB(int *top2, int *A, int cap);
 void	sa(int *A, int *top, int *top2);
