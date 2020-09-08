@@ -14,7 +14,7 @@ void sb(int *A, int *top, int *top2)
 
 void pa(int *A, int *top, int *top2, int cap)
 {
-    PopB(A, cap, top,top2);
+    PopB(A, cap, top,cap);
     Push(A[*top2 - 1], A, top, top2);
 }
 

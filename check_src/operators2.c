@@ -22,16 +22,16 @@ void PrintB(int *top2, int *A, int cap)
     }
 }
 
-void Push(int x, int *A, int *top, int *top2)
+void Push(int x, int *A, int *top2, int cap)
 {
-    if (*top2 > -1 && top2 <= top2 - 1)
+    if (*top2 < cap)
     { // overflow case.
         A[++*top] = x;
     }
     else
     {
         //ft_putstr("Error: stack overflow\n");
-        ft_putstr("KO");
+        ft_putstr("KO\n");
         free(A);
         exit(0);
     }
@@ -72,7 +72,7 @@ void Pop(int *A, int *top, int *top2, int cap)
 
 void PopB(int *A, int cap, int *top, int *top2)
 {
-    if (*top <= cap)
+    if (*top >= 0)
     {
         int popped_value = A[top2[0]++];
         if (*top2 > cap)
